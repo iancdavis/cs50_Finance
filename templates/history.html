@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction History
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped" style="width:100%">
+        <caption>Transaction History</caption>
+        <tr>
+            <th>Type</th>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Date/Time(unix)</th>
+        </tr>
+        {% set i = 0 %}
+        {% for i in range(length) %}
+            <tr>
+                {% for data in final[i] %}
+                    <td>{{ data }}</td>
+                {% endfor %}
+            </tr>
+            {% set i = i + 1 %}
+        {% endfor %}
+
+
+    </table>
+
+{% endblock %}

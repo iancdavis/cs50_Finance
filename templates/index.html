@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Current Holdings
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped" style="width:100%">
+        <caption>Current Holdings</caption>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+
+        {% set i = 0 %}
+        {% for i in range(lenght) %}
+            <tr>
+                {% for data in final[i] %}
+                    <td>{{ data }}</td>
+                {% endfor %}
+            </tr>
+            {% set i = i + 1 %}
+        {% endfor %}
+        <tr>
+            <td>Cash</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ cash }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ totalAccountValue }}</td>
+        </tr>
+
+
+    </table>
+
+{% endblock %}
